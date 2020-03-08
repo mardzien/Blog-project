@@ -50,8 +50,8 @@ class DraftListView(LoginRequiredMixin, ListView):
 #########################
 @login_required
 def post_publish(request, pk):
-    post = get_object_or_404
-    post.publish
+    post = get_object_or_404(Post, pk = pk)
+    post.publish()
     return redirect('post_detail', pk = pk)
 
 
